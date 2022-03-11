@@ -72,13 +72,31 @@
 
                             <strong><i class="fas fa-link mr-1"></i> Links</strong>
 
-                            @if ($user->github_data['html_url'])
-                            <p class="text-muted"><a href="{!! $user->github_data['html_url'] !!}">Github</a></p>
-                            @endif
+                            <div class="mt-2 row">
+                                @if ($user->github_data['html_url'])
+                                <div class="col-3">
+                                    <p class="text-muted"><a href="{!! $user->github_data['html_url'] !!}">Github</a></p>
+                                </div>
+                                @endif
 
-                            @if ($user->github_data['blog'])
-                            <p class="text-muted"><a href="{!! $user->github_data['blog'] !!}">Blog</a></p>
-                            @endif                            
+                                @if ($user->github_data['twitter_username'])
+                                <div class="col-3">
+                                    <p class="text-muted"><a href="https://twitter.com/{!! $user->github_data['twitter_username'] !!}">Twitter</a></p>
+                                </div>
+                                @endif
+
+                                @if ($user->github_data['email'])
+                                <div class="col-3">
+                                    <p class="text-muted"><a href="mailto:{!! $user->github_data['email'] !!}">Email</a></p>
+                                </div>
+                                @endif
+
+                                @if ($user->github_data['blog'])
+                                <div class="col-3">
+                                    <p class="text-muted"><a href="//{!! $user->github_data['blog'] !!}">Site or blog</a></p>
+                                </div>
+                                @endif
+                            </div>
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
