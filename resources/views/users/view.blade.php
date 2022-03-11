@@ -8,7 +8,7 @@
                 <div class="col-md-3">
 
                     <!-- Profile Image -->
-                    <div class="card card-primary card-outline">
+                    <div class="card card-success card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle"
@@ -31,8 +31,6 @@
                                     <b>Public repositories</b> <a class="float-right">{!! $user->github_data['public_repos'] !!}</a>
                                 </li>
                             </ul>
-
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -42,7 +40,7 @@
                 <!-- /.col -->
                 <div class="col-md-9">
                     <!-- About Me Box -->
-                    <div class="card card-primary">
+                    <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">About {!! $user->name !!}</h3>
                         </div>
