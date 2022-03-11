@@ -23,9 +23,13 @@ class UserController extends Controller
     public function delete($id)
     {
         $user = User::find($id);
-        $user->delete();
+        if (!$user) {
+            return redirect('/users')->with('success', 'User not found.');
+        } else {
+            $user->delete();
 
-        return redirect('/users')->with('success', 'User removed.');
+            return redirect('/users')->withErrors(['errors' => 'User removed.']);
+        }
     }
 
     public function github($id)
