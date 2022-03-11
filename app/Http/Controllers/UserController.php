@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -24,11 +26,20 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if (!$user) {
-            return redirect('/users')->with('success', 'User not found.');
+            return redirect('/users')->withErrors(['errors' => 'User not found.']);
         } else {
+            $logout = $user->id == auth()->user()->id ? true : false;
+            
             $user->delete();
+            
+            if ($logout) {
+                Session::flush();
+                Auth::logout();
 
-            return redirect('/users')->withErrors(['errors' => 'User removed.']);
+                return redirect('login')->withErrors(['errors' => 'You deleted yourself and has been logout.']);
+            } else {
+                return redirect('/users')->with('success', 'User removed.');
+            }
         }
     }
 
