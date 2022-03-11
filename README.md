@@ -15,4 +15,4 @@ Practical test to Bem Agro's job opportunity.
     - php artisan serve;
 - There is none user in the database. You can create a new one anytime.
 
-Enjoy ;)
+Enjoy it ;)
